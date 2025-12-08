@@ -80,24 +80,24 @@ document.addEventListener("DOMContentLoaded", () => {
         return {
           label: "В работе",
           className:
-            "bg-yellow-400/10 text-yellow-300 border border-yellow-400/30",
+            "inline-flex items-center justify-center whitespace-nowrap px-3 py-1 text-[11px] bg-yellow-400/10 text-yellow-300 border border-yellow-400/30",
         };
       case "review":
         return {
           label: "На согласовании",
-          className: "bg-blue-400/10 text-blue-300 border border-blue-400/30",
+          className: "inline-flex items-center justify-center whitespace-nowrap px-3 py-1 text-[11px]  bg-blue-400/10 text-blue-300 border border-blue-400/30",
         };
       case "done":
         return {
           label: "Завершен",
           className:
-            "bg-emerald-400/10 text-emerald-300 border border-emerald-400/30",
+            "inline-flex items-center justify-center whitespace-nowrap px-3 py-1 text-[11px]  bg-emerald-400/10 text-emerald-300 border border-emerald-400/30",
         };
       case "new":
       default:
         return {
           label: "Новый",
-          className: "bg-white/10 text-white border border-white/30",
+          className: "inline-flex items-center justify-center whitespace-nowrap px-3 py-1 text-[11px]  bg-white/10 text-white border border-white/30",
         };
     }
   }

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>VORTEX AGENCY — Профиль клиента</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#050711] text-white">
+  <div class="min-h-screen flex flex-col">
+    <!-- HEADER -->
+    <header class="px-4 py-3 border-b border-white/10 flex items-center justify-between">
+      <div>
+        <div class="text-[10px] uppercase tracking-[0.25em] text-white/40">
+          VORTEX AGENCY
+        </div>
+        <div class="text-lg font-semibold">Client Portal</div>
+      </div>
+      <div class="text-[11px] text-white/50 text-right leading-tight">
+        Telegram Ads<br />& Mini App Promo
+      </div>
+    </header>
+
+    <!-- CONTENT -->
+    <main class="flex-1 px-4 py-4 pb-20 overflow-y-auto max-w-xl mx-auto w-full space-y-4">
+        <!--ZAG-->
+        <section>
+            <h1 class="text-xl font-semibold mb-1">
+                Проекты и кампании
+            </h1>
+            <p class="text-sm text-white/70">
+                Все ваши рекламные кампании в VORTEX AGENCY: статусы, бюджеты и прогресс запуска
+            </p>
+        </section>
+
+
+        <section class="grid grid-cols-4 gap-2 text-[11px]">
+            <div class="rounded-2x1 bg-white/5 border border-white/10 px-2.5 py-2">
+                <div class="text-white/50 mb-0.5">Новые</div>
+                <div class="text-base font-semibold" id="summary-new">0</div>
+            </div>
+            <div class="rounded-2x1 bg-white/5 border border-white/10 px-2.5 py-2">
+                <div class="text-white/50 mb-0.5">В работе</div>
+                <div class="text-base font-semibold" id="summary-new">0</div>
+            </div>
+            <div class="rounded-2x1 bg-white/5 border border-white/10 px-2.5 py-2">
+                <div class="text-white/50 mb-0.5">На согл.</div>
+                <div class="text-base font-semibold" id="summary-new">0</div>
+            </div>
+            <div class="rounded-2x1 bg-white/5 border border-white/10 px-2.5 py-2">
+                <div class="text-white/50 mb-0.5">Завершены</div>
+                <div class="text-base font-semibold" id="summary-new">0</div>
+            </div>
+        </section>
+
+         <section class="space-y-2">
+    <div class="flex items-center justify-between gap-2">
+      <div class="flex flex-wrap gap-1.5 text-[11px]" id="projects-status-filter">
+        <button
+          class="proj-filter-status rounded-full px-3 py-1 bg-white text-black font-semibold"
+          data-status="all"
+        >
+          Все
+        </button>
+        <button
+          class="proj-filter-status rounded-full px-3 py-1 bg-white/5 text-white/70 hover:bg-white/10"
+          data-status="in_progress"
+        >
+          В работе
+        </button>
+        <button
+          class="proj-filter-status rounded-full px-3 py-1 bg-white/5 text-white/70 hover:bg-white/10"
+          data-status="review"
+        >
+          На согласовании
+        </button>
+        <button
+          class="proj-filter-status rounded-full px-3 py-1 bg-white/5 text-white/70 hover:bg-white/10"
+          data-status="done"
+        >
+          Завершены
+        </button>
+      </div>
+
+      <div class="hidden sm:flex items-center gap-1 text-[11px] text-white/50">
+        <span>Сортировка:</span>
+        <select
+          id="projects-sort"
+          class="bg-black/40 border border-white/15 rounded-full px-2 py-1 outline-none"
+        >
+          <option value="updated_desc">Сначала обновлённые</option>
+          <option value="budget_desc">По бюджету ↓</option>
+          <option value="budget_asc">По бюджету ↑</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <!-- Список проектов -->
+  <section class="space-y-2">
+    <div id="projects-list" class="space-y-2 text-[13px]">
+      <!-- сюда потом JS нарисует карточки -->
+      <div class="text-[12px] text-white/50">
+        Загрузка проектов...
+      </div>
+    </div>
+
+    <div
+      id="projects-empty"
+      class="hidden text-[12px] text-white/40 border border-dashed border-white/15 rounded-2xl px-3 py-3"
+    >
+      Сейчас нет проектов с выбранным статусом. Попробуйте изменить фильтр или создать новую заявку.
+    </div>
+  </section>
+    </main>
+
+
+    <!-- NAV -->
+    <nav class="fixed bottom-0 left-0 right-0 z-20 flex justify-center pointer-events-none">
+  <div class="pointer-events-auto max-w-xl w-full px-4 pb-[env(safe-area-inset-bottom,0.75rem)]">
+    <div
+      class="rounded-3xl bg-black/80 border border-white/15 backdrop-blur-xl flex items-stretch justify-between px-2 py-2 shadow-[0_10px_30px_rgba(0,0,0,0.6)]"
+    >
+      <!-- Главная -->
+      <a
+        href="index.html"
+        class="nav-tab flex-1 mx-0.5 rounded-2xl px-2 py-1.5 flex flex-col items-center justify-center gap-0.5 text-[11px] text-white/60 hover:text-white hover:bg-white/10 transition"
+      >
+        <span class="w-5 h-5">
+          <svg viewBox="0 0 24 24" class="w-full h-full" fill="none" stroke="currentColor" stroke-width="1.7">
+            <path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-4.5a1 1 0 0 1-1-1v-4.5h-3V20a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-9.5Z" />
+          </svg>
+        </span>
+        <span>Главная</span>
+      </a>
+
+      <!-- Проекты -->
+      <a
+        href="projects.html"
+        class="nav-tab flex-1 mx-0.5 rounded-2xl px-2 py-1.5 flex flex-col items-center justify-center gap-0.5 text-[11px] text-white/60 hover:text-white hover:bg-white/10 transition"
+      >
+        <span class="w-5 h-5">
+          <svg viewBox="0 0 24 24" class="w-full h-full" fill="none" stroke="currentColor" stroke-width="1.7">
+            <rect x="4" y="4" width="7" height="7" rx="1.5" />
+            <rect x="13" y="4" width="7" height="7" rx="1.5" />
+            <rect x="4" y="13" width="7" height="7" rx="1.5" />
+            <rect x="13" y="13" width="7" height="7" rx="1.5" />
+          </svg>
+        </span>
+        <span>Проекты</span>
+      </a>
+
+      <!-- Заявка -->
+      <a
+        href="new-request.html"
+        class="nav-tab flex-1 mx-0.5 rounded-2xl px-2 py-1.5 flex flex-col items-center justify-center gap-0.5 text-[11px] text-white/60 hover:text-white hover:bg-white/10 transition"
+      >
+        <span class="w-5 h-5">
+          <svg viewBox="0 0 24 24" class="w-full h-full" fill="none" stroke="currentColor" stroke-width="1.7">
+            <circle cx="12" cy="12" r="8" />
+            <path d="M12 9v6M9 12h6" />
+          </svg>
+        </span>
+        <span>Заявка</span>
+      </a>
+
+      <!-- Поддержка -->
+      <a
+        href="support.html"
+        class="nav-tab flex-1 mx-0.5 rounded-2xl px-2 py-1.5 flex flex-col items-center justify-center gap-0.5 text-[11px] text-white/60 hover:text-white hover:bg-white/10 transition"
+      >
+        <span class="w-5 h-5">
+          <svg viewBox="0 0 24 24" class="w-full h-full" fill="none" stroke="currentColor" stroke-width="1.7">
+            <path d="M5 18.5 6.5 16H9a8 8 0 1 1 7.3-4.8" />
+            <path d="M17 16.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+          </svg>
+        </span>
+        <span>Поддержка</span>
+      </a>
+
+      <!-- Профиль -->
+      <a
+        href="profile.html"
+        class="nav-tab flex-1 mx-0.5 rounded-2xl px-2 py-1.5 flex flex-col items-center justify-center gap-0.5 text-[11px] text-white/60 hover:text-white hover:bg-white/10 transition"
+      >
+        <span class="w-5 h-5">
+          <svg viewBox="0 0 24 24" class="w-full h-full" fill="none" stroke="currentColor" stroke-width="1.7">
+            <circle cx="12" cy="8.2" r="3.2" />
+            <path d="M6 19.5c1.2-2.3 3.1-3.6 6-3.6s4.8 1.3 6 3.6" />
+          </svg>
+        </span>
+        <span>Профиль</span>
+      </a>
+    </div>
+  </div>
+</nav>
+  </div>
+
+  <script src="projects.js"></script>
+</body>
+</html>

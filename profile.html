@@ -23,18 +23,19 @@
     </header>
 
     <!-- CONTENT -->
-    <main class="flex-1 px-4 py-4 pb-20 overflow-y-auto max-w-xl mx-auto w-full space-y-4">
+ <main class="flex-1 px-4 py-4 pb-20 overflow-y-auto max-w-xl mx-auto w-full space-y-4">
+
       <!-- Заголовок -->
       <section>
         <h1 class="text-xl font-semibold mb-1">
-          Профиль клиента
+          Аккаунт клиента
         </h1>
         <p class="text-sm text-white/70">
-          Обновите данные о себе и своём Telegram-канале, чтобы команда VORTEX могла точнее настраивать рекламные кампании.
+          Баланс, заказы и данные по вашему аккаунту в VORTEX AGENCY.
         </p>
       </section>
 
-            <!-- Карточка профиля (view) -->
+      <!-- Карточка профиля + статус -->
       <section class="rounded-2xl bg-white/5 border border-white/10 px-4 py-4 flex items-center gap-3">
         <!-- Аватар / инициалы -->
         <div
@@ -71,139 +72,236 @@
         </div>
       </section>
 
-
-      <!-- Форма профиля -->
-      <section class="rounded-2xl bg-white/5 border border-white/10 px-4 py-4">
-        <form id="profile-form" class="space-y-3 text-[13px]">
-          <!-- Имя -->
-          <div>
-            <label for="fullName" class="block mb-1 text-white/70">
-              Имя и фамилия
-            </label>
-            <input
-              id="fullName"
-              name="fullName"
-              type="text"
-              class="w-full rounded-xl bg-black/40 border border-white/15 px-3 py-2 text-sm outline-none focus:border-indigo-400"
-              placeholder="Иван Петров"
-            />
-          </div>
-
-          <!-- Telegram username -->
-          <div>
-            <label for="tgUsername" class="block mb-1 text-white/70">
-              Telegram username
-            </label>
-            <input
-              id="tgUsername"
-              name="tgUsername"
-              type="text"
-              class="w-full rounded-xl bg-black/40 border border-white/15 px-3 py-2 text-sm outline-none focus:border-indigo-400"
-              placeholder="@yourchannel"
-            />
-          </div>
-
-          <!-- Канал -->
-          <div>
-            <label for="channelLink" class="block mb-1 text-white/70">
-              Ссылка на канал / Mini App
-            </label>
-            <input
-              id="channelLink"
-              name="channelLink"
-              type="text"
-              class="w-full rounded-xl bg-black/40 border border-white/15 px-3 py-2 text-sm outline-none focus:border-indigo-400"
-              placeholder="https://t.me/yourchannel"
-            />
-          </div>
-
-          <!-- Компания / ниша -->
-          <div>
-            <label for="company" class="block mb-1 text-white/70">
-              Проект / компания / ниша
-            </label>
-            <input
-              id="company"
-              name="company"
-              type="text"
-              class="w-full rounded-xl bg-black/40 border border-white/15 px-3 py-2 text-sm outline-none focus:border-indigo-400"
-              placeholder="Крипто-канал, образовательный проект, NFT и т.д."
-            />
-          </div>
-
-          <!-- Комментарий -->
-          <div>
-            <label for="notes" class="block mb-1 text-white/70">
-              Комментарий для агентства
-            </label>
-            <textarea
-              id="notes"
-              name="notes"
-              rows="3"
-              class="w-full rounded-xl bg-black/40 border border-white/15 px-3 py-2 text-sm outline-none focus:border-indigo-400 resize-none"
-              placeholder="Коротко опишите, что важно для вас в продвижении."
-            ></textarea>
-          </div>
-
-          <!-- Кнопка сохранения -->
-          <div class="pt-2 flex items-center justify-between gap-2">
-            <button
-              type="submit"
-              class="rounded-full bg-white text-black text-sm font-semibold px-4 py-2 hover:bg-gray-200 transition"
-            >
-              Сохранить профиль
-            </button>
-            <div
-              id="profile-saved"
-              class="hidden text-[11px] text-emerald-300 bg-emerald-400/10 border border-emerald-400/40 rounded-full px-3 py-1"
-            >
-              Сохранено
-            </div>
-          </div>
-        </form>
+      <!-- Баланс / финансы -->
+      <section class="grid grid-cols-3 gap-3 text-[11px]">
+        <div class="rounded-2xl bg-white/5 border border-white/10 px-3 py-3">
+          <div class="text-white/50 mb-1">Баланс</div>
+          <div class="text-base font-semibold" id="balance-amount">0 ₽</div>
+          <div class="text-[10px] text-white/40">Доступно к расходу</div>
+        </div>
+        <div class="rounded-2xl bg-white/5 border border-white/10 px-3 py-3">
+          <div class="text-white/50 mb-1">В работе</div>
+          <div class="text-base font-semibold" id="balance-reserved">0 ₽</div>
+          <div class="text-[10px] text-white/40">Зарезервировано под кампании</div>
+        </div>
+        <div class="rounded-2xl bg-white/5 border border-white/10 px-3 py-3">
+          <div class="text-white/50 mb-1">Потрачено</div>
+          <div class="text-base font-semibold" id="balance-total-spend">0 ₽</div>
+          <div class="text-[10px] text-white/40">За всё время</div>
+        </div>
       </section>
 
-      <!-- Технический блок -->
-      <section class="text-[11px] text-white/40">
-        Эти данные хранятся только локально в вашем браузере (localStorage) и используются для автоподстановки в заявках.
+      <!-- Кратко по заказам -->
+      <section class="grid grid-cols-3 gap-3 text-[11px]">
+        <div class="rounded-2xl bg-white/5 border border-white/10 px-3 py-3">
+          <div class="text-white/50 mb-1">Активные заказы</div>
+          <div class="text-base font-semibold" id="orders-active">0</div>
+        </div>
+        <div class="rounded-2xl bg-white/5 border border-white/10 px-3 py-3">
+          <div class="text-white/50 mb-1">Всего кампаний</div>
+          <div class="text-base font-semibold" id="orders-total">0</div>
+        </div>
+        <div class="rounded-2xl bg-white/5 border border-white/10 px-3 py-3">
+          <div class="text-white/50 mb-1">Расход за месяц</div>
+          <div class="text-base font-semibold" id="orders-month-spend">0 ₽</div>
+        </div>
+      </section>
+
+      <!-- Последние заказы -->
+      <section class="space-y-2">
+        <div class="flex items-center justify-between mb-1">
+          <h2 class="text-sm font-semibold">Последние заказы</h2>
+          <a href="projects.html" class="text-[11px] text-indigo-300 hover:text-indigo-200">
+            Все проекты →
+          </a>
+        </div>
+        <div id="orders-list" class="space-y-2 text-[12px]">
+          <!-- сюда JS нарисует заказы -->
+        </div>
+      </section>
+
+      <!-- Настройки профиля (анкета, как было) -->
+      <section class="rounded-2xl bg-white/5 border border-white/10">
+        <button
+          id="profile-settings-toggle"
+          class="w-full flex items-center justify-between px-4 py-3 text-[13px]"
+        >
+          <span class="font-semibold">Настройки профиля</span>
+          <span class="text-white/60 text-[11px]" id="profile-settings-toggle-label">
+            Развернуть
+          </span>
+        </button>
+
+        <div id="profile-settings-body" class="px-4 pb-4 pt-0 space-y-3 text-[13px] hidden">
+          <form id="profile-form" class="space-y-3">
+            <div>
+              <label for="fullName" class="block mb-1 text-white/70">
+                Имя и фамилия
+              </label>
+              <input
+                id="fullName"
+                name="fullName"
+                type="text"
+                class="w-full rounded-xl bg-black/40 border border-white/15 px-3 py-2 text-sm outline-none focus:border-indigo-400"
+                placeholder="Иван Петров"
+              />
+            </div>
+
+            <div>
+              <label for="tgUsername" class="block mb-1 text-white/70">
+                Telegram username
+              </label>
+              <input
+                id="tgUsername"
+                name="tgUsername"
+                type="text"
+                class="w-full rounded-xl bg-black/40 border border-white/15 px-3 py-2 text-sm outline-none focus:border-indigo-400"
+                placeholder="@yourchannel"
+              />
+            </div>
+
+            <div>
+              <label for="channelLink" class="block mb-1 text-white/70">
+                Ссылка на канал / Mini App
+              </label>
+              <input
+                id="channelLink"
+                name="channelLink"
+                type="text"
+                class="w-full rounded-xl bg-black/40 border border-white/15 px-3 py-2 text-sm outline-none focus:border-indigo-400"
+                placeholder="https://t.me/yourchannel"
+              />
+            </div>
+
+            <div>
+              <label for="company" class="block mb-1 text-white/70">
+                Проект / компания / ниша
+              </label>
+              <input
+                id="company"
+                name="company"
+                type="text"
+                class="w-full rounded-xl bg-black/40 border border-white/15 px-3 py-2 text-sm outline-none focus:border-indigo-400"
+                placeholder="Крипто-канал, образовательный проект, NFT и т.д."
+              />
+            </div>
+
+            <div>
+              <label for="notes" class="block mb-1 text-white/70">
+                Комментарий для агентства
+              </label>
+              <textarea
+                id="notes"
+                name="notes"
+                rows="3"
+                class="w-full rounded-xl bg-black/40 border border-white/15 px-3 py-2 text-sm outline-none focus:border-indigo-400 resize-none"
+                placeholder="Коротко опишите, что важно для вас в продвижении."
+              ></textarea>
+            </div>
+
+            <div class="pt-2 flex items-center justify-between gap-2">
+              <button
+                type="submit"
+                class="rounded-full bg-white text-black text-sm font-semibold px-4 py-2 hover:bg-gray-200 transition"
+              >
+                Сохранить профиль
+              </button>
+              <div
+                id="profile-saved"
+                class="hidden text-[11px] text-emerald-300 bg-emerald-400/10 border border-emerald-400/40 rounded-full px-3 py-1"
+              >
+                Сохранено
+              </div>
+            </div>
+          </form>
+
+          <div class="text-[11px] text-white/40">
+            Эти данные хранятся локально в вашем браузере и используются для автоподстановки в заявках.
+          </div>
+        </div>
       </section>
     </main>
 
+
     <!-- NAV -->
-    <nav class="fixed bottom-0 left-0 right-0 bg-[#050711]/95 border-t border-white/10 backdrop-blur-md">
-      <div class="max-w-xl mx-auto flex items-center justify-between px-2 py-2 text-[11px]">
-        <a
-          href="index.html"
-          class="flex-1 mx-1 rounded-full px-2 py-1 text-white/60 hover:text-white/90 hover:bg-white/10 text-center"
-        >
-          Главная
-        </a>
-        <a
-          href="projects.html"
-          class="flex-1 mx-1 rounded-full px-2 py-1 text-white/60 hover:text-white/90 hover:bg-white/10 text-center"
-        >
-          Проекты
-        </a>
-        <a
-          href="new-request.html"
-          class="flex-1 mx-1 rounded-full px-2 py-1 text-white/60 hover:text-white/90 hover:bg-white/10 text-center"
-        >
-          Заявка
-        </a>
-        <a
-          href="support.html"
-          class="flex-1 mx-1 rounded-full px-2 py-1 text-white/60 hover:text-white/90 hover:bg-white/10 text-center"
-        >
-          Поддержка
-        </a>
-        <a
-          href="profile.html"
-          class="flex-1 mx-1 rounded-full px-2 py-1 font-semibold bg-white text-black text-center"
-        >
-          Профиль
-        </a>
-      </div>
-    </nav>
+    av class="fixed bottom-0 left-0 right-0 z-20 flex justify-center pointer-events-none">
+  <div class="pointer-events-auto max-w-xl w-full px-4 pb-[env(safe-area-inset-bottom,0.75rem)]">
+    <div
+      class="rounded-3xl bg-black/80 border border-white/15 backdrop-blur-xl flex items-stretch justify-between px-2 py-2 shadow-[0_10px_30px_rgba(0,0,0,0.6)]"
+    >
+      <!-- Главная -->
+      <a
+        href="index.html"
+        class="nav-tab flex-1 mx-0.5 rounded-2xl px-2 py-1.5 flex flex-col items-center justify-center gap-0.5 text-[11px] text-white/60 hover:text-white hover:bg-white/10 transition"
+      >
+        <span class="w-5 h-5">
+          <svg viewBox="0 0 24 24" class="w-full h-full" fill="none" stroke="currentColor" stroke-width="1.7">
+            <path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-4.5a1 1 0 0 1-1-1v-4.5h-3V20a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-9.5Z" />
+          </svg>
+        </span>
+        <span>Главная</span>
+      </a>
+
+      <!-- Проекты -->
+      <a
+        href="projects.html"
+        class="nav-tab flex-1 mx-0.5 rounded-2xl px-2 py-1.5 flex flex-col items-center justify-center gap-0.5 text-[11px] text-white/60 hover:text-white hover:bg-white/10 transition"
+      >
+        <span class="w-5 h-5">
+          <svg viewBox="0 0 24 24" class="w-full h-full" fill="none" stroke="currentColor" stroke-width="1.7">
+            <rect x="4" y="4" width="7" height="7" rx="1.5" />
+            <rect x="13" y="4" width="7" height="7" rx="1.5" />
+            <rect x="4" y="13" width="7" height="7" rx="1.5" />
+            <rect x="13" y="13" width="7" height="7" rx="1.5" />
+          </svg>
+        </span>
+        <span>Проекты</span>
+      </a>
+
+      <!-- Заявка -->
+      <a
+        href="new-request.html"
+        class="nav-tab flex-1 mx-0.5 rounded-2xl px-2 py-1.5 flex flex-col items-center justify-center gap-0.5 text-[11px] text-white/60 hover:text-white hover:bg-white/10 transition"
+      >
+        <span class="w-5 h-5">
+          <svg viewBox="0 0 24 24" class="w-full h-full" fill="none" stroke="currentColor" stroke-width="1.7">
+            <circle cx="12" cy="12" r="8" />
+            <path d="M12 9v6M9 12h6" />
+          </svg>
+        </span>
+        <span>Заявка</span>
+      </a>
+
+      <!-- Поддержка -->
+      <a
+        href="support.html"
+        class="nav-tab flex-1 mx-0.5 rounded-2xl px-2 py-1.5 flex flex-col items-center justify-center gap-0.5 text-[11px] text-white/60 hover:text-white hover:bg-white/10 transition"
+      >
+        <span class="w-5 h-5">
+          <svg viewBox="0 0 24 24" class="w-full h-full" fill="none" stroke="currentColor" stroke-width="1.7">
+            <path d="M5 18.5 6.5 16H9a8 8 0 1 1 7.3-4.8" />
+            <path d="M17 16.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+          </svg>
+        </span>
+        <span>Поддержка</span>
+      </a>
+
+      <!-- Профиль -->
+      <a
+        href="profile.html"
+        class="nav-tab flex-1 mx-0.5 rounded-2xl px-2 py-1.5 flex flex-col items-center justify-center gap-0.5 text-[11px] text-white/60 hover:text-white hover:bg-white/10 transition"
+      >
+        <span class="w-5 h-5">
+          <svg viewBox="0 0 24 24" class="w-full h-full" fill="none" stroke="currentColor" stroke-width="1.7">
+            <circle cx="12" cy="8.2" r="3.2" />
+            <path d="M6 19.5c1.2-2.3 3.1-3.6 6-3.6s4.8 1.3 6 3.6" />
+          </svg>
+        </span>
+        <span>Профиль</span>
+      </a>
+    </div>
+  </div>
+</nav>
   </div>
 
   <script src="profile.js"></script>
