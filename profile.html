@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>VORTEX AGENCY — Профиль клиента</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#050711] text-white">
+  <div class="min-h-screen flex flex-col">
+    <!-- HEADER -->
+    <header class="px-4 py-3 border-b border-white/10 flex items-center justify-between">
+      <div>
+        <div class="text-[10px] uppercase tracking-[0.25em] text-white/40">
+          VORTEX AGENCY
+        </div>
+        <div class="text-lg font-semibold">Client Portal</div>
+      </div>
+      <div class="text-[11px] text-white/50 text-right leading-tight">
+        Telegram Ads<br />& Mini App Promo
+      </div>
+    </header>
+
+    <!-- CONTENT -->
+    <main class="flex-1 px-4 py-4 pb-20 overflow-y-auto max-w-xl mx-auto w-full space-y-4">
+      <!-- Заголовок -->
+      <section>
+        <h1 class="text-xl font-semibold mb-1">
+          Профиль клиента
+        </h1>
+        <p class="text-sm text-white/70">
+          Обновите данные о себе и своём Telegram-канале, чтобы команда VORTEX могла точнее настраивать рекламные кампании.
+        </p>
+      </section>
+
+            <!-- Карточка профиля (view) -->
+      <section class="rounded-2xl bg-white/5 border border-white/10 px-4 py-4 flex items-center gap-3">
+        <!-- Аватар / инициалы -->
+        <div
+          class="w-12 h-12 rounded-2xl bg-gradient-to-br from-indigo-500 to-fuchsia-500 flex items-center justify-center text-sm font-semibold"
+          id="view-avatar"
+        >
+          VA
+        </div>
+
+        <!-- Инфо -->
+        <div class="flex-1 text-[13px]">
+          <div class="flex items-center justify-between gap-2">
+            <div>
+              <div id="view-fullName" class="font-semibold">
+                Клиент VORTEX
+              </div>
+              <div id="view-username" class="text-white/60 text-[12px]">
+                @username
+              </div>
+            </div>
+            <div class="text-right text-[10px] text-white/40" id="view-tg-id">
+              Telegram ID: —
+            </div>
+          </div>
+
+          <div class="mt-2 text-[12px] text-white/70">
+            <span class="text-white/50">Канал / Mini App: </span>
+            <span id="view-channel">не указан</span>
+          </div>
+          <div class="text-[12px] text-white/50">
+            <span class="text-white/50">Проект / ниша: </span>
+            <span id="view-company">не указано</span>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- Форма профиля -->
+      <section class="rounded-2xl bg-white/5 border border-white/10 px-4 py-4">
+        <form id="profile-form" class="space-y-3 text-[13px]">
+          <!-- Имя -->
+          <div>
+            <label for="fullName" class="block mb-1 text-white/70">
+              Имя и фамилия
+            </label>
+            <input
+              id="fullName"
+              name="fullName"
+              type="text"
+              class="w-full rounded-xl bg-black/40 border border-white/15 px-3 py-2 text-sm outline-none focus:border-indigo-400"
+              placeholder="Иван Петров"
+            />
+          </div>
+
+          <!-- Telegram username -->
+          <div>
+            <label for="tgUsername" class="block mb-1 text-white/70">
+              Telegram username
+            </label>
+            <input
+              id="tgUsername"
+              name="tgUsername"
+              type="text"
+              class="w-full rounded-xl bg-black/40 border border-white/15 px-3 py-2 text-sm outline-none focus:border-indigo-400"
+              placeholder="@yourchannel"
+            />
+          </div>
+
+          <!-- Канал -->
+          <div>
+            <label for="channelLink" class="block mb-1 text-white/70">
+              Ссылка на канал / Mini App
+            </label>
+            <input
+              id="channelLink"
+              name="channelLink"
+              type="text"
+              class="w-full rounded-xl bg-black/40 border border-white/15 px-3 py-2 text-sm outline-none focus:border-indigo-400"
+              placeholder="https://t.me/yourchannel"
+            />
+          </div>
+
+          <!-- Компания / ниша -->
+          <div>
+            <label for="company" class="block mb-1 text-white/70">
+              Проект / компания / ниша
+            </label>
+            <input
+              id="company"
+              name="company"
+              type="text"
+              class="w-full rounded-xl bg-black/40 border border-white/15 px-3 py-2 text-sm outline-none focus:border-indigo-400"
+              placeholder="Крипто-канал, образовательный проект, NFT и т.д."
+            />
+          </div>
+
+          <!-- Комментарий -->
+          <div>
+            <label for="notes" class="block mb-1 text-white/70">
+              Комментарий для агентства
+            </label>
+            <textarea
+              id="notes"
+              name="notes"
+              rows="3"
+              class="w-full rounded-xl bg-black/40 border border-white/15 px-3 py-2 text-sm outline-none focus:border-indigo-400 resize-none"
+              placeholder="Коротко опишите, что важно для вас в продвижении."
+            ></textarea>
+          </div>
+
+          <!-- Кнопка сохранения -->
+          <div class="pt-2 flex items-center justify-between gap-2">
+            <button
+              type="submit"
+              class="rounded-full bg-white text-black text-sm font-semibold px-4 py-2 hover:bg-gray-200 transition"
+            >
+              Сохранить профиль
+            </button>
+            <div
+              id="profile-saved"
+              class="hidden text-[11px] text-emerald-300 bg-emerald-400/10 border border-emerald-400/40 rounded-full px-3 py-1"
+            >
+              Сохранено
+            </div>
+          </div>
+        </form>
+      </section>
+
+      <!-- Технический блок -->
+      <section class="text-[11px] text-white/40">
+        Эти данные хранятся только локально в вашем браузере (localStorage) и используются для автоподстановки в заявках.
+      </section>
+    </main>
+
+    <!-- NAV -->
+    <nav class="fixed bottom-0 left-0 right-0 bg-[#050711]/95 border-t border-white/10 backdrop-blur-md">
+      <div class="max-w-xl mx-auto flex items-center justify-between px-2 py-2 text-[11px]">
+        <a
+          href="index.html"
+          class="flex-1 mx-1 rounded-full px-2 py-1 text-white/60 hover:text-white/90 hover:bg-white/10 text-center"
+        >
+          Главная
+        </a>
+        <a
+          href="projects.html"
+          class="flex-1 mx-1 rounded-full px-2 py-1 text-white/60 hover:text-white/90 hover:bg-white/10 text-center"
+        >
+          Проекты
+        </a>
+        <a
+          href="new-request.html"
+          class="flex-1 mx-1 rounded-full px-2 py-1 text-white/60 hover:text-white/90 hover:bg-white/10 text-center"
+        >
+          Заявка
+        </a>
+        <a
+          href="support.html"
+          class="flex-1 mx-1 rounded-full px-2 py-1 text-white/60 hover:text-white/90 hover:bg-white/10 text-center"
+        >
+          Поддержка
+        </a>
+        <a
+          href="profile.html"
+          class="flex-1 mx-1 rounded-full px-2 py-1 font-semibold bg-white text-black text-center"
+        >
+          Профиль
+        </a>
+      </div>
+    </nav>
+  </div>
+
+  <script src="profile.js"></script>
+</body>
+</html>

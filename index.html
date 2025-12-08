@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VORTEX AGENCY - Client Portal</title>
+    <!--TL CDN-->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#050711] text-white">
+    <div class="min-h-screen flex flex-col">
+
+    <!--HEADER-->
+    <header class="px-4 py-3 border-b border-white/10 flex items-center justify-between">
+        <div>
+           <div class="text-[10px] uppercase tracking-[0.25em] text-white/40">VORTEX AGENCY</div>
+        </div>
+        <div class="text-[11px] text-white/50 text-right leading-tight">Telegram ADS />& Mini App Promo</div>
+    </header>
+
+    <!--CONTENT-->
+    <main id="app-content" class="flex-1 px-4 pb-20 overflow-y-auto max-w-wl mx-auto w-full">
+    
+<!-- Hero-блок -->
+            <section class="rounded-2xl bg-white/5 border border-white/10 px-4 py-4 mb-2">
+            <div class="flex items-start justify-between gap-3">
+                <div>
+                <div class="text-[10px] uppercase tracking-[0.25em] text-white/40 mb-1">
+                    ЛИЧНЫЙ КАБИНЕТ КЛИЕНТА
+                </div>
+                <h1 class="text-lg font-semibold mb-1">
+                    VORTEX AGENCY — управление рекламой в Telegram
+                </h1>
+                <p class="text-[13px] text-white/65">
+                    Следите за кампаниями, статусами проектов и отчётами по продвижению
+                    канала в одном интерфейсе.
+                </p>
+                </div>
+
+                <div class="text-right text-[11px]">
+                <div class="px-2 py-1 rounded-full bg-emerald-400/10 text-emerald-300 border border-emerald-400/30 inline-block mb-1">
+                    Клиент · @yourchannel
+                </div>
+                <div class="text-white/40">
+                    Ваш личный менеджер:<br />
+                    <span class="text-white/70">Егор Манифестов (Старший специалист DAO)</span>
+                </div>
+                </div>
+            </div>
+            </section>
+
+
+        <section class="grid grid-cols-3 gap-3 text-xs">
+            <div class="rounded-2x1 bg-white/5 border border-white/10 px-3 py-3">
+                <div class="text-white/50">Активные</div>
+                <div class="text-lg font-semibold" id="stat-active">3</div>
+            </div>
+            <div class="rounded-2x1 bg-white/5 border border-white/10 px-3 py-3">
+                <div class="text-white/50">Запусков</div>
+                <div class="text-lg font-semibold" id="stat-launches">12</div>
+            </div>
+                 <div class="rounded-2x1 bg-white/5 border border-white/10 px-3 py-3">
+                <div class="text-white/50">Охваты</div>
+                <div class="text-lg font-semibold" id="stat-reach">1.2M</div>
+            </div>
+        </section>
+
+
+        <section class="grid grid-cols-3 gap-3 text-[11px] mt-3">
+        <div class="rounded-2xl bg-white/5 border border-white/10 px-3 py-3">
+            <div class="text-white/50 mb-1">CTR</div>
+            <div class="text-base font-semibold" id="perf-ctr">–%</div>
+            <div class="text-[10px] text-white/40">Клики / показы</div>
+        </div>
+        <div class="rounded-2xl bg-white/5 border border-white/10 px-3 py-3">
+            <div class="text-white/50 mb-1">CPC</div>
+            <div class="text-base font-semibold" id="perf-cpc">– ₽</div>
+            <div class="text-[10px] text-white/40">Стоимость клика</div>
+        </div>
+        <div class="rounded-2xl bg-white/5 border border-white/10 px-3 py-3">
+            <div class="text-white/50 mb-1">CR</div>
+            <div class="text-base font-semibold" id="perf-cr">–%</div>
+            <div class="text-[10px] text-white/40">Конверсии / клики</div>
+        </div>
+        </section>
+
+
+        
+
+        <section class="space-y-2">
+            <div class="flex items-center justify-between mb-1">
+                <h2 class="text-sm font-semibold">Активные проекты</h2>
+                <a href="projects.html" class="text-[11px] text-indigo-300 hover:text-indigo-200"> Все проекты →</a>
+            </div>
+
+            <div class="flex flex-wrap gap-2 mb-2 text-[11px]" id="projects-filter">
+            <button 
+                class="filter-btn rounded-full px-3 py-1 bg-white text-black font-semibold"
+                data-filter="all"
+            >
+                Все
+            </button>
+
+
+            <button 
+                class="filter-btn rounded-full px-3 py-1 bg-white/5 text-white/70 hover:bg-white/10"                    
+                data-filter="telegram"
+            >
+                Реклама канала
+            </button>
+            <button 
+                class="filter-btn rounded-full px-3 py-1 bg-white/5 text-white/70 hover:bg-white/10"                    
+                data-filter="mini-app"
+            >
+                Mini App
+            </button>
+            <button 
+                class="filter-btn rounded-full px-3 py-1 bg-white/5 text-white/70 hover:bg-white/10"                    
+                data-filter="seeding"
+            >
+                Посевы 
+            </button>    
+        </div>
+
+            <div id="active-projects" class="space-y-2" text-sm>
+                <div class="text-[12px] text-white/50">
+                    Загрузка проектов...
+                </div>
+            </div>
+
+            <div id="no-active-projects" class="hidden text-[12px] text-white/40 border border-dashed border-white/15 rounded-xl px-3 py-2">
+                Сейчас нет активных кампаний. Вы можете создать новую заявку, и команда Vortex подготовит медиаплан
+            </div>
+            
+        </section>
+    </main>
+
+    <nav class="fixed bottom-0 left-0 right-0 bg-[#050711]/95 border-t border-white/10 backdrop-blur-md">
+        <div class="max-w-xl mx-auto flex items-center justify-between px-2 py-2 text-[11px]">
+            <a
+                href="dashboard.html"
+                class="flex-1 mx-1 rounded-full px-2 py-1 font-semibold bg-white text-black text-center"
+            >
+                Главная
+            </a>
+            <a
+                href="projects.html"
+                 class="flex-1 mx-1 rounded-full px-2 py-1 text-white/60 hover:text-white/90 hover:bg-white/10 text-center"
+            >
+                Проекты
+            </a>
+            <a
+                href="projects.html"
+                 class="flex-1 mx-1 rounded-full px-2 py-1 text-white/60 hover:text-white/90 hover:bg-white/10 text-center"
+            >
+                Заявка
+            </a>
+            <a
+                href="projects.html"
+                 class="flex-1 mx-1 rounded-full px-2 py-1 text-white/60 hover:text-white/90 hover:bg-white/10 text-center"
+            >
+                Поддержка
+            </a>
+            <a
+                href="profile.html"
+                 class="flex-1 mx-1 rounded-full px-2 py-1 text-white/60 hover:text-white/90 hover:bg-white/10 text-center"
+            >
+                Профиль
+            </a>
+        </div>
+    </nav>
+    </div>
+    <script src="dashboard.js"></script>
+</body>
+</html>
