@@ -15,7 +15,7 @@
         <div>
            <div class="text-[10px] uppercase tracking-[0.25em] text-white/40">VORTEX AGENCY</div>
         </div>
-        <div class="text-[11px] text-white/50 text-right leading-tight">Telegram ADS />& Mini App Promo</div>
+        <div class="text-[11px] text-white/50 text-right leading-tight">Telegram ADS | Mini App Promo</div>
     </header>
 
     <!--CONTENT-->
@@ -135,40 +135,85 @@
         </section>
     </main>
 
-    <nav class="fixed bottom-0 left-0 right-0 bg-[#050711]/95 border-t border-white/10 backdrop-blur-md">
-        <div class="max-w-xl mx-auto flex items-center justify-between px-2 py-2 text-[11px]">
-            <a
-                href="dashboard.html"
-                class="flex-1 mx-1 rounded-full px-2 py-1 font-semibold bg-white text-black text-center"
-            >
-                Главная
-            </a>
-            <a
-                href="projects.html"
-                 class="flex-1 mx-1 rounded-full px-2 py-1 text-white/60 hover:text-white/90 hover:bg-white/10 text-center"
-            >
-                Проекты
-            </a>
-            <a
-                href="projects.html"
-                 class="flex-1 mx-1 rounded-full px-2 py-1 text-white/60 hover:text-white/90 hover:bg-white/10 text-center"
-            >
-                Заявка
-            </a>
-            <a
-                href="projects.html"
-                 class="flex-1 mx-1 rounded-full px-2 py-1 text-white/60 hover:text-white/90 hover:bg-white/10 text-center"
-            >
-                Поддержка
-            </a>
-            <a
-                href="profile.html"
-                 class="flex-1 mx-1 rounded-full px-2 py-1 text-white/60 hover:text-white/90 hover:bg-white/10 text-center"
-            >
-                Профиль
-            </a>
-        </div>
-    </nav>
+    <<nav class="fixed bottom-0 left-0 right-0 z-20 flex justify-center pointer-events-none">
+  <div class="pointer-events-auto max-w-xl w-full px-4 pb-[env(safe-area-inset-bottom,0.75rem)]">
+    <div
+      class="rounded-3xl bg-black/80 border border-white/15 backdrop-blur-xl flex items-stretch justify-between px-2 py-2 shadow-[0_10px_30px_rgba(0,0,0,0.6)]"
+    >
+      <!-- Главная -->
+      <a
+        href="index.html"
+        class="nav-tab flex-1 mx-0.5 rounded-2xl px-2 py-1.5 flex flex-col items-center justify-center gap-0.5 text-[11px] text-white/60 hover:text-white hover:bg-white/10 transition"
+      >
+        <span class="w-5 h-5">
+          <svg viewBox="0 0 24 24" class="w-full h-full" fill="none" stroke="currentColor" stroke-width="1.7">
+            <path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-4.5a1 1 0 0 1-1-1v-4.5h-3V20a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-9.5Z" />
+          </svg>
+        </span>
+        <span>Главная</span>
+      </a>
+
+      <!-- Проекты -->
+      <a
+        href="projects.html"
+        class="nav-tab flex-1 mx-0.5 rounded-2xl px-2 py-1.5 flex flex-col items-center justify-center gap-0.5 text-[11px] text-white/60 hover:text-white hover:bg-white/10 transition"
+      >
+        <span class="w-5 h-5">
+          <svg viewBox="0 0 24 24" class="w-full h-full" fill="none" stroke="currentColor" stroke-width="1.7">
+            <rect x="4" y="4" width="7" height="7" rx="1.5" />
+            <rect x="13" y="4" width="7" height="7" rx="1.5" />
+            <rect x="4" y="13" width="7" height="7" rx="1.5" />
+            <rect x="13" y="13" width="7" height="7" rx="1.5" />
+          </svg>
+        </span>
+        <span>Проекты</span>
+      </a>
+
+      <!-- Заявка -->
+      <a
+        href="new-request.html"
+        class="nav-tab flex-1 mx-0.5 rounded-2xl px-2 py-1.5 flex flex-col items-center justify-center gap-0.5 text-[11px] text-white/60 hover:text-white hover:bg-white/10 transition"
+      >
+        <span class="w-5 h-5">
+          <svg viewBox="0 0 24 24" class="w-full h-full" fill="none" stroke="currentColor" stroke-width="1.7">
+            <circle cx="12" cy="12" r="8" />
+            <path d="M12 9v6M9 12h6" />
+          </svg>
+        </span>
+        <span>Заявка</span>
+      </a>
+
+      <!-- Поддержка -->
+      <a
+        href="support.html"
+        class="nav-tab flex-1 mx-0.5 rounded-2xl px-2 py-1.5 flex flex-col items-center justify-center gap-0.5 text-[11px] text-white/60 hover:text-white hover:bg-white/10 transition"
+      >
+        <span class="w-5 h-5">
+          <svg viewBox="0 0 24 24" class="w-full h-full" fill="none" stroke="currentColor" stroke-width="1.7">
+            <path d="M5 18.5 6.5 16H9a8 8 0 1 1 7.3-4.8" />
+            <path d="M17 16.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+          </svg>
+        </span>
+        <span>Поддержка</span>
+      </a>
+
+      <!-- Профиль -->
+      <a
+        href="profile.html"
+        class="nav-tab flex-1 mx-0.5 rounded-2xl px-2 py-1.5 flex flex-col items-center justify-center gap-0.5 text-[11px] text-white/60 hover:text-white hover:bg-white/10 transition"
+      >
+        <span class="w-5 h-5">
+          <svg viewBox="0 0 24 24" class="w-full h-full" fill="none" stroke="currentColor" stroke-width="1.7">
+            <circle cx="12" cy="8.2" r="3.2" />
+            <path d="M6 19.5c1.2-2.3 3.1-3.6 6-3.6s4.8 1.3 6 3.6" />
+          </svg>
+        </span>
+        <span>Профиль</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
     </div>
     <script src="dashboard.js"></script>
 </body>
