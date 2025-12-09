@@ -8,7 +8,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-[#050711] text-white">
-  <div class="min-h-screen flex flex-col">
+<div class="min-h-screen flex flex-col">
     <!-- HEADER -->
     <header class="px-4 py-3 border-b border-white/10 flex items-center justify-between">
       <div>
@@ -23,97 +23,130 @@
     </header>
 
     <!-- CONTENT -->
-    <main class="flex-1 px-4 py-4 pb-20 overflow-y-auto max-w-xl mx-auto w-full space-y-4">
-        <!--ZAG-->
-        <section>
-            <h1 class="text-xl font-semibold mb-1">
-                Проекты и кампании
-            </h1>
-            <p class="text-sm text-white/70">
-                Все ваши рекламные кампании в VORTEX AGENCY: статусы, бюджеты и прогресс запуска
-            </p>
-        </section>
+    <section class="px-4 pt-4 pb-2 max-w-3xl mx-auto">
+        <div class="flex items-baseline justify-between gap-3">
+            <div>
+                <h1 class="text-lg font-semibold tracking-light">
+                    Проекты
+                </h1>
+                <p class="mt-1 text-xs text-slate-400">
+                    Управляйте рекламными кампаниями, бюджетами и результатами в одном месте
+                </p>
+            </div>
 
+            <div class="text-right">
+                <p class="text-[11px] font-medium text-slate-300">
+                    Всего проектов: <span id="projects-total" class="text-slate-50">-</span>
+                </p>
+                <p class="mt-0.5 text-[11px]  text-slate-500">
+                    В работе: <span id="projects-active" class="text-emerald-400">-</span>
+                </p>
+            </div>
+        </div>
+    </section>
 
-        <section class="grid grid-cols-4 gap-2 text-[11px]">
-            <div class="rounded-2x1 bg-white/5 border border-white/10 px-2.5 py-2">
-                <div class="text-white/50 mb-0.5">Новые</div>
-                <div class="text-base font-semibold" id="summary-new">0</div>
-            </div>
-            <div class="rounded-2x1 bg-white/5 border border-white/10 px-2.5 py-2">
-                <div class="text-white/50 mb-0.5">В работе</div>
-                <div class="text-base font-semibold" id="summary-new">0</div>
-            </div>
-            <div class="rounded-2x1 bg-white/5 border border-white/10 px-2.5 py-2">
-                <div class="text-white/50 mb-0.5">На согл.</div>
-                <div class="text-base font-semibold" id="summary-new">0</div>
-            </div>
-            <div class="rounded-2x1 bg-white/5 border border-white/10 px-2.5 py-2">
-                <div class="text-white/50 mb-0.5">Завершены</div>
-                <div class="text-base font-semibold" id="summary-new">0</div>
-            </div>
-        </section>
-
-         <section class="space-y-2">
-    <div class="flex items-center justify-between gap-2">
-      <div class="flex flex-wrap gap-1.5 text-[11px]" id="projects-status-filter">
-        <button
-          class="proj-filter-status rounded-full px-3 py-1 bg-white text-black font-semibold"
-          data-status="all"
+    <section class="px-4 pb-2 max-w-3x">
+        <div class="flex items-center gap-2 overflow-x-auto no-scrollbar text-[11px]">
+            <button
+            data-filter-status = 'all'
+            class="px-3 py-1.5 rounded-full border border-slate-700 bg-slate-900/60 text-slate-100 whitespace-nowrap text-[11px] font-medium active-filter"    
         >
-          Все
+            Все
         </button>
         <button
-          class="proj-filter-status rounded-full px-3 py-1 bg-white/5 text-white/70 hover:bg-white/10"
-          data-status="in_progress"
+            data-filter-status = 'running'
+            class="px-3 py-1.5 rounded-full border border-slate-800 bg-slate-950/60 text-slate-300 whitespace-nowrap "    
         >
-          В работе
+            В работе
         </button>
         <button
-          class="proj-filter-status rounded-full px-3 py-1 bg-white/5 text-white/70 hover:bg-white/10"
-          data-status="review"
+            data-filter-status = 'planned'
+            class="px-3 py-1.5 rounded-full border border-slate-800 bg-slate-950/60 text-slate-300 whitespace-nowrap "    
         >
-          На согласовании
+            На запуске
         </button>
         <button
-          class="proj-filter-status rounded-full px-3 py-1 bg-white/5 text-white/70 hover:bg-white/10"
-          data-status="done"
+            data-filter-status = 'paused'
+            class="px-3 py-1.5 rounded-full border border-slate-800 bg-slate-950/60 text-slate-300 whitespace-nowrap "    
         >
-          Завершены
+            На паузе
         </button>
-      </div>
-
-      <div class="hidden sm:flex items-center gap-1 text-[11px] text-white/50">
-        <span>Сортировка:</span>
-        <select
-          id="projects-sort"
-          class="bg-black/40 border border-white/15 rounded-full px-2 py-1 outline-none"
+        <button
+            data-filter-staus = 'finished'
+            class="px-3 py-1.5 rounded-full border border-slate-800 bg-slate-950/60 text-slate-300 whitespace-nowrap "    
         >
-          <option value="updated_desc">Сначала обновлённые</option>
-          <option value="budget_desc">По бюджету ↓</option>
-          <option value="budget_asc">По бюджету ↑</option>
-        </select>
-      </div>
-    </div>
-  </section>
+            Завершены
+        </button>
 
-  <!-- Список проектов -->
-  <section class="space-y-2">
-    <div id="projects-list" class="space-y-2 text-[13px]">
-      <!-- сюда потом JS нарисует карточки -->
-      <div class="text-[12px] text-white/50">
-        Загрузка проектов...
-      </div>
-    </div>
 
-    <div
-      id="projects-empty"
-      class="hidden text-[12px] text-white/40 border border-dashed border-white/15 rounded-2xl px-3 py-3"
-    >
-      Сейчас нет проектов с выбранным статусом. Попробуйте изменить фильтр или создать новую заявку.
-    </div>
-  </section>
-    </main>
+                <div class="ml-auto flex items-center gap-1">
+                    <select name="" id="projects-sort" class="text-[11px] rounded-full border border-slate-800 bg-slate-950/80 px-3 py-1.5 pr-6 text-slate-200">
+                        <option value="data_desc">Новые сначала</option>
+                        <option value="spend_desc">По расходу</option>
+                        <option value="reach_desc">По охвату</option>
+                        <option value="revenue_desc">По выручке</option>
+                    </select>
+
+                    <button
+                        id="projects-search-toggle"
+                        class="inline-flex h-7 w-7 items-center justify-center rounded-full border border-slate-800 bg-slate-950/80"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-3.5 w-3.5">
+                            <path
+                            d="M15.5 14h-.79l-.28-.27a6.471 6.471 0 001.57-4.23 6.5 6.5 0 10-6.5 6.5 6.471 6.471 0 004.23-1.57l.27.28v.79L18.5 20 20 18.5 15.5 14zM10.5 14C8.01 14 6 11.99 6 9.5S8.01 5 10.5 5 15 7.01 15 9.5 12.99 14 10.5 14z"
+                            fill="currentColor"
+                            />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div id="projects-search-wrapper" class="mt-2 hidden">
+                <input id="projects-search-input" type="text" placeholder="Поиск по названию или @username"
+                class="w-full rounded-2xl bg-slate-950/80 border border-slate-800 px-3 py-2 text-[12px] placeholder:text-slate-500" >
+            </div>
+    </section>
+
+    <section class="px-4 pt-1 pb-3 max-w-3xl mx-auto">
+        <div class="rounded-2xl border border-slate-800/80 bg-slate-950/80 px-3 py-2.5">
+            <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-[11px]">
+                <div class="flex items-baseline gap-1">
+                    <span class="text-slate-400">Дневной расход:</span>
+                    <span id="kpi-daily-spend" class="font-medium text-slate-50">— ₽</span>
+                </div>
+
+                <div class="flex items-baseline gap-1">
+                    <span class="text-slate-400">Охват 7 дней:</span>
+                    <span id="kpi-7d-reach" class="font-medium text-slate-50">—</span>
+                </div>
+
+                <div class="flex items-baseline gap-1">
+                    <span class="text-slate-400">Среднее удержание D7:</span>
+                    <span id="kpi-d7-retention" class="font-medium text-emerald-400">—</span>
+                </div>
+
+                <div class="flex items-baseline gap-1">
+                    <span class="text-slate-400">ROI по Mini Apps</span>
+                    <span id="kpi-miniapps-roi" class="font-medium text-sky-400">—</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="px-4 pb-24 max-w-3xl mx-auto">
+        <div id="projects-list" class="space-y-2.5">
+            <!-- НАЧАЛО: пример одного проекта -->
+        
+            <!-- КОНЕЦ: пример одного проекта -->
+        </div>
+
+
+
+        <div id="projects-empty-state" class="hidden rounded-2xl border border-dashed border-slate-800/80 bg-slate-950/80 px-4 py-6 text-center text-[12px] text-slate-400">
+            Пока нет активных проектов. Как только мы запустим первую кампанию здесь появится список с охватом, удержанием и результатами по Mini Apps.
+        </div>
+        
+    </section>
 
 
     <!-- NAV -->
@@ -195,7 +228,7 @@
     </div>
   </div>
 </nav>
-  </div>
+</div>
 
   <script src="projects.js"></script>
 </body>
